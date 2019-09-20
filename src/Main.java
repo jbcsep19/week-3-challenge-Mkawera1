@@ -4,18 +4,17 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        ArrayList<Job> jobs = new ArrayList<>();
+        int size = jobs.size();
         String name = "";
         String emailAddress = "";
         String userInput = "";
-        String s = "";
         String company = "";
         String jobTitle = "";
         int startDate = 0;
         int endDate = 0;
         String jobDescription = "";
 
-
-        ArrayList<Job> jobs = new ArrayList<>();
         System.out.println("Please enter name: ");
         name = sc.nextLine();
 
@@ -43,20 +42,25 @@ public class Main {
             job1.setEndDate(endDate);
 
             System.out.println("Please enter the job description " +counter);
-            jobDescription = sc.nextLine();
+            jobDescription = sc.next();
             job1.setJobDescription(jobDescription);
+
+
 
             jobs.add(job1);
             counter = counter + 1;
             userInput = sc.nextLine();
 
-            System.out.println("Do you want to stop? (y/n)");
+
+            System.out.println("Do you want to stop? (stop/n)");
             userInput = sc.nextLine();
 
-            if(userInput.equalsIgnoreCase("y")){
+            if(userInput.equalsIgnoreCase("stop")){
                 break;
 
+
             }
+
 
         }
         counter = 1;
@@ -64,9 +68,11 @@ public class Main {
             System.out.println("Job" + counter);
             System.out.println(job.displayList());
             counter = counter + 1;
+
         }
 
-
+        size = jobs.size();
+        System.out.println("The number of jobs in the list is: " +size);
         }
 
 
